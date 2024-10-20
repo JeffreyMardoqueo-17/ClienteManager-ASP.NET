@@ -1,23 +1,22 @@
 ﻿using RegistroClientesEN;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace RegistrarClientesDAL.Interfaces
 {
     public interface ICliente
     {
-        // Método para obtener todos los clientes en una lista
-        IEnumerable<Clientes> GetClientes();
+     
+        Task<IEnumerable<Clientes>> GetClientesAsync();
 
-        // Método para obtener un cliente por su ID
-        Clientes GetClienteById(int id);
+       
+        Task<Clientes> GetClienteByIdAsync(int id);
 
-        // Método para crear un cliente
-        void CrearCliente(Clientes cliente);
+      
+        Task CrearClienteAsync(Clientes cliente);
+      
+        Task UpdateClienteAsync(Clientes cliente);
 
-        // Método para actualizar un cliente
-        void UpdateCliente(Clientes cliente);
-
-        // Método para eliminar un cliente por su ID
-        void DeleteCliente(int id);
+        Task DeleteClienteAsync(int id);
     }
 }

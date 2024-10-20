@@ -7,7 +7,8 @@ namespace RegistrarClientesDAL
     {
         public DBContext(DbContextOptions<DBContext> options) : base(options) { }
 
-        public DbSet<Clientes> Clientes { get; set; }
+        public DbSet<Clientes> Usuarios { get; set; }
+        public DbSet<Cargo> Cargos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

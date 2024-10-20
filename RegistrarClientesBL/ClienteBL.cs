@@ -1,35 +1,42 @@
 ﻿using RegistrarClientesDAL.Interfaces;
 using RegistroClientesEN;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace RegistrarClientesBL
 {
     public class ClienteBL
     {
         private readonly ICliente _cliente;
+
         public ClienteBL(ICliente cliente)
         {
             _cliente = cliente;
         }
-        public IEnumerable<Clientes> ObtenerClientes()
+
+        public async Task<IEnumerable<Clientes>> ObtenerClientesAsync()
         {
-            return _cliente.GetClientes();
+            return await _cliente.GetClientesAsync();
         }
-        public Clientes ObtenerClientespoId(int id)
+
+        public async Task<Clientes> ObtenerClientePorIdAsync(int id)
         {
-            return _cliente.GetClienteById(id);
+            return await _cliente.GetClienteByIdAsync(id);
         }
-        public void CrearCliente(Clientes cliente)
+
+        public async Task CrearClienteAsync(Clientes cliente)
         {
-            _cliente.CrearCliente(cliente);
+            await _cliente.CrearClienteAsync(cliente);
         }
-        public void UpdateCliente(Clientes cliente)
+
+        public async Task ActualizarClienteAsync(Clientes cliente)
         {
-            _cliente.UpdateCliente(cliente);
+            await _cliente.UpdateClienteAsync(cliente);
         }
-        public void DeleteCliente(int id)
+
+        public async Task EliminarClienteAsync(int id)
         {
-            _cliente.DeleteCliente(id);
+            await _cliente.DeleteClienteAsync(id);
         }
     }
 }
