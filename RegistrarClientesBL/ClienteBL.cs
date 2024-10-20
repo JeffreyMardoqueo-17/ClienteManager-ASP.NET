@@ -14,30 +14,26 @@ namespace RegistrarClientesBL
             _cliente = cliente;
         }
 
-
         public async Task<IEnumerable<Clientes>> ObtenerClientesAsync()
         {
             return await _cliente.GetClientesAsync();
         }
-        
+
         public async Task<Clientes> ObtenerClientePorIdAsync(int id)
         {
             return await _cliente.GetClienteByIdAsync(id);
         }
 
-        
         public async Task CrearClienteAsync(Clientes cliente)
         {
             await _cliente.CrearClienteAsync(cliente);
         }
 
-       
         public async Task ActualizarClienteAsync(Clientes cliente)
         {
             await _cliente.UpdateClienteAsync(cliente);
         }
 
-        // Método asíncrono para eliminar un cliente
         public async Task EliminarClienteAsync(int id)
         {
             await _cliente.DeleteClienteAsync(id);

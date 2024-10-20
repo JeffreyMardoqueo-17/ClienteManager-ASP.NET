@@ -19,36 +19,37 @@ namespace RegistrarClientesDAL
         // Método para obtener todos los clientes (asíncrono)
         public async Task<IEnumerable<Clientes>> GetClientesAsync()
         {
-            return await _context.Clientes.ToListAsync();
+            return await _context.Usuarios.ToListAsync();
         }
 
         // Método para obtener un cliente por ID (asíncrono)
         public async Task<Clientes> GetClienteByIdAsync(int id)
         {
-            return await _context.Clientes.FindAsync(id);
+            return await _context.Usuarios.FindAsync(id);
         }
 
         // Método para crear un cliente (asíncrono)
         public async Task CrearClienteAsync(Clientes cliente)
         {
-            await _context.Clientes.AddAsync(cliente);
+            cliente.FechaRegistro = DateTime.Now;  // Asegurarse de que la fecha de registro sea la fecha actual
+            await _context.Usuarios.AddAsync(cliente);
             await _context.SaveChangesAsync();
         }
 
         // Método para actualizar un cliente (asíncrono)
         public async Task UpdateClienteAsync(Clientes cliente)
         {
-            _context.Clientes.Update(cliente);
+            _context.Usuarios.Update(cliente);
             await _context.SaveChangesAsync();
         }
 
         // Método para eliminar un cliente por ID (asíncrono)
         public async Task DeleteClienteAsync(int id)
         {
-            var cliente = await _context.Clientes.FindAsync(id);
+            var cliente = await _context.Usuarios.FindAsync(id);
             if (cliente != null)
             {
-                _context.Clientes.Remove(cliente);
+                _context.Usuarios.Remove(cliente);
                 await _context.SaveChangesAsync();
             }
         }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace RegistrarClientesDAL
 {
-    public class CargoDAL:ICargo
+    public class CargoDAL
     {
         private readonly DBContext _dbContext;
         public CargoDAL(DBContext dbContext)
@@ -27,5 +27,6 @@ namespace RegistrarClientesDAL
         {
             _dbContext.Cargos.Add(cargo);
         }
+
     }
 }
