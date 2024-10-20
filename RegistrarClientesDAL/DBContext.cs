@@ -3,9 +3,9 @@ using RegistroClientesEN;  // Donde está tu clase `Clientes`
 
 namespace RegistrarClientesDAL
 {
-    public class AppDbContext : DbContext
+    public class DBContext : DbContext
     {
-        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
+        public DBContext(DbContextOptions<DBContext> options) : base(options) { }
 
         public DbSet<Clientes> Clientes { get; set; }
 
