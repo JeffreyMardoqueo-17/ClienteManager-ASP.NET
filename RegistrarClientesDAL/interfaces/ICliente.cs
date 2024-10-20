@@ -1,20 +1,23 @@
 ﻿using RegistroClientesEN;
+using System.Collections.Generic;
 
-namespace RegistrarClientesDAL.interfaces
+namespace RegistrarClientesDAL.Interfaces
 {
     public interface ICliente
     {
-        //metodo para traerlos a todos en listas
+        // Método para obtener todos los clientes en una lista
         IEnumerable<Clientes> GetClientes();
 
-        //PARA TARER POR ID
-        Clientes GetClientes(int id);
+        // Método para obtener un cliente por su ID
+        Clientes GetClienteById(int id);
 
-        //metodo para crear un Cliente
-        void CrearCliente(int id);
-        //metodo para actualizar
-        void UpdateCliente(int id);
-        //metodo para eliminar
+        // Método para crear un cliente
+        void CrearCliente(Clientes cliente);
+
+        // Método para actualizar un cliente
+        void UpdateCliente(Clientes cliente);
+
+        // Método para eliminar un cliente por su ID
         void DeleteCliente(int id);
     }
 }
