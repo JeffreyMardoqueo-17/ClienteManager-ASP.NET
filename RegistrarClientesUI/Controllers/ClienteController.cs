@@ -86,13 +86,13 @@ namespace RegistrarClientesUI.Controllers
             return View(cliente);
         }
 
-        // POST: ClienteController/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             await _clienteBL.EliminarClienteAsync(id);
             return RedirectToAction(nameof(Index));
         }
+
     }
 }
